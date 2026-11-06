@@ -1,0 +1,58 @@
+{
+  "dataset": "Telco Customer Churn (Kaggle / IBM sample data)",
+  "target": "Churn",
+  "positive_class": "Yes (churned)",
+  "feature_columns": [
+    "SeniorCitizen",
+    "tenure",
+    "MonthlyCharges",
+    "TotalCharges",
+    "gender",
+    "Partner",
+    "Dependents",
+    "PhoneService",
+    "MultipleLines",
+    "InternetService",
+    "OnlineSecurity",
+    "OnlineBackup",
+    "DeviceProtection",
+    "TechSupport",
+    "StreamingTV",
+    "StreamingMovies",
+    "Contract",
+    "PaperlessBilling",
+    "PaymentMethod"
+  ],
+  "random_state": 26,
+  "test_size": 0.2,
+  "n_train": 5634,
+  "n_test": 1409,
+  "model_files": {
+    "Logistic Regression": "logistic_regression.joblib",
+    "Decision Tree": "decision_tree.joblib",
+    "KNN": "knn.joblib",
+    "Naive Bayes": "naive_bayes.joblib",
+    "Support Vector Machine": "support_vector_machine.joblib"
+  },
+  "best_params": {
+    "Logistic Regression": {
+      "C": 10
+    },
+    "Decision Tree": {
+      "criterion": "entropy",
+      "max_depth": 10,
+      "min_samples_leaf": 50
+    },
+    "KNN": {
+      "n_neighbors": 51,
+      "weights": "uniform"
+    },
+    "Naive Bayes": {
+      "var_smoothing": 1.0
+    },
+    "Support Vector Machine": {
+      "C": 0.5,
+      "gamma": 0.01
+    }
+  }
+}
