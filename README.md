@@ -49,7 +49,7 @@ ROC-AUC); the test rows were not used for tuning.
 
 GitHub repository: `https://github.com/ajit9291/ML_Assignment_2`
 
-Live Streamlit app: `https://mlassignment2-kt8xazm2rohjh9fx9warrq.streamlit.app/`
+Live Streamlit app: `https://mlassignment2-mscs9ivugkf4fy9ytbdyge.streamlit.app/`
 
 ```
 ML_Assignment2_Submission/
