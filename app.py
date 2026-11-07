@@ -4,9 +4,11 @@ Upload a test CSV (raw Telco columns + the Churn target), pick one of the five s
 scores the file with that pre-trained model. Nothing is re-trained here.
 """
 import json
+import sys
 from pathlib import Path
 
 import joblib
+import sklearn
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
@@ -33,8 +35,23 @@ def load_metadata():
 
 
 @st.cache_resource
-def load_model(file_name: str):
+def _load_model_file(file_name: str):
     return joblib.load(MODEL_DIR / file_name)
+
+
+def load_model(file_name: str):
+    """Load a saved pipeline; show a clear message (not a raw traceback) if the environment does not match."""
+    try:
+        return _load_model_file(file_name)
+    except Exception as exc:  # unpickling fails when scikit-learn / numpy versions differ from training
+        trained_with = load_metadata().get("scikit_learn_version", "1.9.0")
+        st.error(
+            f"Could not load `{file_name}` ({type(exc).__name__}: {exc}).\n\n"
+            f"The models were trained with scikit-learn **{trained_with}**, but this environment has "
+            f"scikit-learn **{sklearn.__version__}** on Python {sys.version.split()[0]}. "
+            "Install the versions in requirements.txt (scikit-learn 1.9 needs Python 3.11 or newer)."
+        )
+        st.stop()
 
 
 @st.cache_data
