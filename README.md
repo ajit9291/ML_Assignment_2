@@ -131,11 +131,3 @@ conclusive. Logistic regression's lead on MCC and accuracy is clearer.
 
 The app loads the saved `.joblib` pipelines from `model/` and only calls `predict` / `predict_proba`, so nothing is
 re-trained on the uploaded data.
-
-## Deployment (Streamlit Community Cloud)
-
-1. Push this folder to a GitHub repository (branch `main`).
-2. At https://streamlit.io/cloud choose **New app**, select the repository and branch, set the main file to `app.py`
-   and click **Deploy**.
-3. `requirements.txt` pins `scikit-learn==1.6.1`, the version the `.joblib` files were saved with. Keep it
-   pinned; a different scikit-learn version can fail to load them.
