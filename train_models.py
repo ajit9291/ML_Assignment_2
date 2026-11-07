@@ -19,6 +19,7 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
+import sklearn
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import RocCurveDisplay, confusion_matrix
 from sklearn.model_selection import GridSearchCV, StratifiedKFold, train_test_split
